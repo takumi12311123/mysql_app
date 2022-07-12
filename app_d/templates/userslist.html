@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block substance %}
+<div class="content">
+    <h3>ユーザ一覧</h3>
+    <ul>
+        {% for user in userslist %}
+        <li>
+            {{user["id"]}}: {{user["username"]}}
+        </li>
+        {% endfor %}
+    </ul>
+    {% if not userslist %}
+    <p>該当ユーザはいません</p>
+    {% endif %}
+</div>
+{% endblock %}

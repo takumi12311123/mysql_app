@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+      <meta charset="UTF-8">
+      <title>演習その2</title>
+    </head>
+    <body>
+
+        <h1>お問い合わせフォーム</h1>
+
+        <form action="test01.html" method="post">
+            <p>お名前:<input type="text" name="name" size="20" mazlength="10"></p>
+            <input type="radio" name="old" value="10代">10代
+            <input type="radio" name="old" value="20代">20代
+            <input type="radio" name="old" value="30代">30代
+            <input type="radio" name="old" value="40代">40代
+            <input type="radio" name="old" value="50代">50代
+            <input type="radio" name="old" value="60代">60代
+            <input type="radio" name="old" value="70代">70代
+            <input type="radio" name="old" value="回答せず">回答せず<br>
+            <p>使用しているスマートフォンは?(複数選択可):
+                <input type="checkbox" name="smartPhone" value="iphone">iphone
+                <input type="checkbox" name="smartPhone" value="Android">Android
+                <input type="checkbox" name="smartPhone" value="otherdevice">その他
+            </p>
+            <p>言語:
+            <select name="langage">
+                <option value="日本語">日本語</option>
+                <option value="英語">英語</option>
+                <option value="フランス語">フランス語</option>
+                <option value="スペイン語">スペイン語</option>
+            </select>
+            </p>
+            <p>メモ:<textarea name="memo" rows="5" cols="40">メモ</textarea></p>
+            <input type="submit" value="送信する">
+        </form>
+
+    </body>
+</html>

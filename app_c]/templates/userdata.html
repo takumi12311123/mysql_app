@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block substance %}
+<div class="content">
+    <p>ユーザID: {{ userdata["id"] }}</p>
+    <p>ユーザ名: {{ userdata["username"] }}</p>
+    <p>パスワード: {{ userdata["password"] }}</p>
+    <p>作成時間: {{ userdata["created_at"] }}</p>
+    <!-- <p>ユーザID: {{ userdata.id }}</p> -->
+</div>
+{% endblock %}

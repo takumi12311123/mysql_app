@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="授業で説明をする為のページ">
+    <title>Simple Blog</title>
+</head>
+
+<body>
+    <h1>Simple Blog</h1>
+    <hr>
+    <br>
+    <form action="" method="post">
+        <h1>サインイン</h1>
+        <label for="username">ユーザ名</label>
+        <input id="username" type="text" name="username"><br>
+        <label for="password">パスワード</label>
+        <input id="password" type="password" name="password"><br>
+        <label>
+            <input type="checkbox" value="remember-me"> 記憶する
+        </label><br>
+        <button type="submit">サインイン</button>
+    </form>
+</body>
+
+</html>

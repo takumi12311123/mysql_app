@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>dataAnalysis サンプル</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>　<!-- Chart.js の読み込み -->
+<script src="https://unpkg.com/simple-statistics@7.7.0/dist/simple-statistics.min.js"></script>　<!-- simplestatistics の読み込み -->　
+
+<script>
+    let result = [];
+
+    window.addEventListener("load", async () => {
+
+      await fetch('./data.csv')
+      .then(response => response.text())
+      .then(data => convertCSVtoArray(data));
+
+      let dataArray = [[],[],[],[],[],[],[],[],[],[],[],[]];
+      let monthData = [];
+
+      for(let i=0;i < result.length;i++){
+        try{
+          let month = Number(result[i][0].split(/\//)[1]);
+          dataArray[ month - 1].push(Number(result[i][1]));
+        } catch(e){
+        }
+      }
+
+      for(let i = 0;i < dataArray.length;i++){
+        monthData.push(ss.median(dataArray[i]));　// ss のオブジェクトは simple-statistics が生成したオブジェクト．これを使って様々な統計結果を算出することができる．
+      }
+
+      const labels = [
+          '1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月'
+      ];
+
+      const data = {
+        labels: labels,
+        datasets: [{
+          label: '月別の気温の中間値',
+          backgroundColor: 'rgb(255, 99, 132)',
+          borderColor: 'rgb(255, 99, 132)',
+          data: monthData,
+        }]
+      };
+
+      const config = {
+        type: 'line',
+        data: data,
+        options: {}
+      };
+
+      var myChart = new Chart(document.getElementById('myChart'), config);
+    });
+
+    function convertCSVtoArray(str){
+      let tmp = str.split("\n");
+　　　 tmp.splice(0, 5);　// 最初の5行はヘッダ部分なので除く
+      for(let i=0; i<tmp.length; ++i){
+        result[i] = tmp[i].split(',');
+      }
+    }
+
+</script>
+</head>
+<body>
+  <div>
+    <canvas id="myChart"></canvas>
+  </div>
+</body>
+</html>

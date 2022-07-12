@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block substance %}
+
+<main class="form-signin">
+    <form action="{{url_for("post_test") }}" method="post">
+        <h1 class="h3 mb-3 fw-normal">サインイン</h1>
+        <label for="inputEmail" class="visually-hidden">ユーザ名</label>
+        <input type="email" id="inputEmail" class="form-control" placeholder="メールアドレス" required autofocus>
+        <label for="inputPassword" class="visually-hidden">パスワード</label>
+        <input type="password" id="inputPassword" class="form-control" placeholder="パスワード" required>
+        <div class="checkbox mb-3">
+            <label>
+                <input type="checkbox" value="remember-me"> 記憶する
+            </label>
+        </div>
+        <button class="w-100 btn btn-lg btn-primary" type="submit">サインイン</button>
+        
+        <hr>
+    </form>
+
+
+    <div align="center">
+        <h3>新規会員登録</h3> 
+    </div>
+        <div align="center">
+            <p><a href="register.html">新規登録の方はこちらから</a></p> 
+        </div>
+</main>
+
+{% endblock %}

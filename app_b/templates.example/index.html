@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block substance %}
+<h1>
+    GET
+</h1>
+<form action="{{url_for("get_test") }} " method="get">
+    <label for="testdata">testdata</label>
+    <input id="testdata" type="text" name="testdata"><br>
+    <button type="submit">GET送信</button>
+
+</form>
+<hr>
+<h1>
+    POST
+</h1>
+<form action="{{url_for("post_test") }}" method="post">
+    <label for="username">ユーザ名</label>
+    <input id="username" type="text" name="username"><br>
+    <label for="password">パスワード</label>
+    <input id="password" type="password" name="password"><br>
+    </label><br>
+    <button type="submit">POST送信</button>
+</form>
+<h1>
+    Redirect
+</h1>
+<a href="{{url_for('r1')}}">r1にアクセス</a>
+{% endblock %}

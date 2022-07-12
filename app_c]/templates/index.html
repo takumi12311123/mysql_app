@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block substance %}
+<h1>
+    単独データ参照
+</h1>
+<p>入力したユーザ登録番号のデータ表示</p>
+<form action="{{url_for("user_data") }} " method="post">
+    <label for="userid">User ID: </label>
+    <input id="userid" type="text" name="userid"><br>
+    <button type="submit">実行</button>
+</form>
+<hr>
+<h1>
+    複数データ参照
+</h1>
+<p>入力したユーザ登録番号以上のデータをすべて表示</p>
+<form action="{{url_for("users_list") }} " method="post">
+    <label for="userid">User ID: </label>
+    <input id="userid" type="text" name="userid"><br>
+    <button type="submit">実行</button>
+</form>
+<hr>
+
+
+<h1>
+    データ登録
+</h1>
+<form action="{{url_for("signup") }}" method="post">
+    <label for="username">ユーザ名</label>
+    <input id="username" type="text" name="username"><br>
+    <label for="password">パスワード</label>
+    <input id="password" type="password" name="password"><br>
+    <br>
+    <button type="submit">登録</button>
+</form>
+
+{% endblock %}

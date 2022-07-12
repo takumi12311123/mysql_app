@@ -1,0 +1,11 @@
+from fastapi import FastAPI, Request
+ 
+app = FastAPI(
+    title='Simple Blog',
+    description='Blog using FastAPI',
+    version='0.1'
+)
+
+@app.get("/")
+def index(request: Request):
+    return {'message': 'Hello, World!'}

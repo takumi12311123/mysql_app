@@ -1,0 +1,39 @@
+from fastapi import FastAPI, Request, Form
+from fastapi.responses import RedirectResponse
+from fastapi.templating import Jinja2Templates
+
+app = FastAPI(
+    title='Simple Blog',
+    description='Blog using FastAPI',
+    version='0.1'
+)
+templates = Jinja2Templates(directory="/app/templates")
+
+@app.get("/")
+def index(request: Request):
+    return templates.TemplateResponse("index.html", {"request": request})
+
+@app.get("/get_test")
+async def get_test(request: Request, testdata: str):
+    return templates.TemplateResponse("get_test.html", {
+        "request": request, 
+        "testdata": testdata
+        })
+
+@app.post("/post_test")
+async def post_test(request: Request, username: str=Form(...), password: str=Form(...)):
+    return templates.TemplateResponse("post_test.html", {
+        "request": request, 
+        "username": username, 
+        "password": password
+        })
+
+
+@app.get("/r1")
+def r1(request: Request):
+    response = RedirectResponse(url="/r2")
+    return response
+
+@app.get("/r2")
+def r2(request: Request):
+    return templates.TemplateResponse("r2.html", {"request": request})
